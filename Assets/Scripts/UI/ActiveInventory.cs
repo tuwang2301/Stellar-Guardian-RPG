@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ActiveInventory : MonoBehaviour
 {
-    private int activeSlotIndexNum = 0;
+    private int activeSlotIndexNum = -1;
 
     private PlayerControls playerControls;
 
@@ -16,6 +16,8 @@ public class ActiveInventory : MonoBehaviour
     private void Start()
     {
         playerControls.Inventory.Keyboard.performed += ctx => ToggleActiveSlot((int)ctx.ReadValue<float>());
+
+        ToggleActiveHighlight(0);
     }
 
     private void OnEnable()
@@ -30,6 +32,8 @@ public class ActiveInventory : MonoBehaviour
 
     private void ToggleActiveHighlight(int indexNum)
     {
+        if(indexNum != activeSlotIndexNum ) {
+
         activeSlotIndexNum = indexNum;
 
         foreach (Transform inventorySlot in this.transform)
@@ -38,5 +42,40 @@ public class ActiveInventory : MonoBehaviour
         }
 
         this.transform.GetChild(indexNum).GetChild(0).gameObject.SetActive(true);
+
+        ChangeActiveWeapon();
+        }
+    }
+
+    private void ChangeActiveWeapon()
+    {
+        if (ActiveWeapon.Instance.CurrentActiveWeapon != null)
+        {
+            Destroy(ActiveWeapon.Instance.CurrentActiveWeapon.gameObject);
+        }
+
+        if (!transform.GetChild(activeSlotIndexNum).GetComponentInChildren<InventorySlot>())
+        {
+            ActiveWeapon.Instance.WeaponNull();
+            return;
+        }
+
+        GameObject weaponToSpawn = transform.GetChild(activeSlotIndexNum).
+        GetComponentInChildren<InventorySlot>().GetWeaponInfo().weaponPrefab;
+
+        if (PlayerController.Instance.FacingRight)
+        {
+            weaponToSpawn.GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else
+        {
+            weaponToSpawn.GetComponent<SpriteRenderer>().flipX = false;
+        }
+
+        GameObject newWeapon = Instantiate(weaponToSpawn, ActiveWeapon.Instance.transform.position, Quaternion.identity);
+
+        newWeapon.transform.parent = ActiveWeapon.Instance.transform;
+
+        ActiveWeapon.Instance.NewWeapon(newWeapon.GetComponent<MonoBehaviour>());
     }
 }

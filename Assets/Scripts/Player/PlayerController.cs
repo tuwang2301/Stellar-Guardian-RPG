@@ -6,11 +6,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : Singleton<PlayerController>
 {
-    
+    public bool FacingRight { get { return facingRight; } }
 
     [SerializeField] private float moveSpeed = 1f;
     [SerializeField] private float dashSpeed = 4f;
     [SerializeField] private TrailRenderer myTrailRenderer;
+    [SerializeField] private Transform weaponCollider;
 
     private PlayerControls playerControls;
     private Vector2 movement;
@@ -19,6 +20,7 @@ public class PlayerController : Singleton<PlayerController>
     private SpriteRenderer mySpriteRender;
     private float startingMoveSpeed;
 
+    private bool facingRight = false;
     private bool isDashing = false;
 
     protected override void Awake()
@@ -53,6 +55,11 @@ public class PlayerController : Singleton<PlayerController>
         Move();
     }
 
+    public Transform GetWeaponCollider()
+    {
+        return weaponCollider;
+    }
+
     private void PlayerInput()
     {
         movement = playerControls.Movement.Move.ReadValue<Vector2>();
@@ -74,9 +81,12 @@ public class PlayerController : Singleton<PlayerController>
         if (mousePos.x > playerScreenPoint.x)
         {
             mySpriteRender.flipX = true;
-        }else
+            facingRight = true;
+        }
+        else
         {
             mySpriteRender.flipX = false;
+            facingRight = false;
         }
     }
     private void Dash()
