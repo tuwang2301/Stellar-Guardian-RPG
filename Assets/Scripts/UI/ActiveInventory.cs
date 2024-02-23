@@ -63,14 +63,7 @@ public class ActiveInventory : MonoBehaviour
         GameObject weaponToSpawn = transform.GetChild(activeSlotIndexNum).
         GetComponentInChildren<InventorySlot>().GetWeaponInfo().weaponPrefab;
 
-        if (PlayerController.Instance.FacingRight)
-        {
-            weaponToSpawn.GetComponent<SpriteRenderer>().flipX = true;
-        }
-        else
-        {
-            weaponToSpawn.GetComponent<SpriteRenderer>().flipX = false;
-        }
+        ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, 0);
 
         GameObject newWeapon = Instantiate(weaponToSpawn, ActiveWeapon.Instance.transform.position, Quaternion.identity);
 
