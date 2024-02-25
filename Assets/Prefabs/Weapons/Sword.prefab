@@ -120,3 +120,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   swordAttackCD: 0.5
+  weaponInfo: {fileID: 11400000, guid: 158191e289e75694286e757a445d43c9, type: 2}

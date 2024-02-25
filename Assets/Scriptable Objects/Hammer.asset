@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Hammer
   m_EditorClassIdentifier: 
   weaponPrefab: {fileID: 1595952953111336976, guid: 13363f13af0b6934db1897d3d293384b, type: 3}
-  weaponCooldown: 0.5
+  weaponCooldown: 1

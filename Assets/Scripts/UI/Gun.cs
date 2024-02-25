@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour, IWeapon
 {
+    [SerializeField] private WeaponInfo weaponInfo;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform bulletSpawnPoint;
+
+    readonly int FIRE_HASH = Animator.StringToHash("Fire");
+
+    private Animator myAnimator;
+
+    private void Awake()
+    {
+        myAnimator = GetComponent<Animator>();
+    }
 
     private void Update()
     {
@@ -12,8 +24,14 @@ public class Gun : MonoBehaviour, IWeapon
 
     public void Attack()
     {
-        Debug.Log("Gun Attack");
-        ActiveWeapon.Instance.ToggleIsAttacking(false);
+        myAnimator.SetTrigger(FIRE_HASH);
+        Debug.Log(this.transform.rotation);
+        GameObject newArrow = Instantiate(bulletPrefab, bulletSpawnPoint.position, this.transform.rotation);
+    }
+
+    public WeaponInfo GetWeaponInfo()
+    {
+        return weaponInfo;
     }
 
     private void MouseFollowWithOffset()

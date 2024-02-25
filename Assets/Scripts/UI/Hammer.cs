@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Hammer : MonoBehaviour, IWeapon
 {
+
+    [SerializeField] private WeaponInfo weaponInfo;
+
     private void Update()
     {
         MouseFollowWithOffset();
@@ -12,7 +15,11 @@ public class Hammer : MonoBehaviour, IWeapon
     public void Attack()
     {
         Debug.Log("Hammer Attack");
-        ActiveWeapon.Instance.ToggleIsAttacking(false);
+    }
+
+    public WeaponInfo GetWeaponInfo()
+    {
+        return weaponInfo;
     }
 
     private void MouseFollowWithOffset()

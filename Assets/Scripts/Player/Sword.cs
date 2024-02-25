@@ -5,6 +5,7 @@ using UnityEngine;
 public class Sword : MonoBehaviour, IWeapon
 {
     [SerializeField] private float swordAttackCD = .5f;
+    [SerializeField] private WeaponInfo weaponInfo;
 
     private Transform weaponCollider;
     private Animator animator;
@@ -24,6 +25,11 @@ public class Sword : MonoBehaviour, IWeapon
         MouseFollowWithOffset();
     }
 
+    public WeaponInfo GetWeaponInfo()
+    {
+        return weaponInfo;
+    }
+
     public void Attack()
     {
         animator.SetTrigger("Attack");
@@ -34,7 +40,6 @@ public class Sword : MonoBehaviour, IWeapon
     private IEnumerator AttackCDRoutine()
     {
         yield return new WaitForSeconds(swordAttackCD);
-        ActiveWeapon.Instance.ToggleIsAttacking(false);
     }
 
 

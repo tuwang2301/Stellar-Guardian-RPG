@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Pistol : MonoBehaviour, IWeapon
 {
+    [SerializeField] private WeaponInfo weaponInfo;
+
     public void Attack()
     {
         Debug.Log("Pistol Attack");
-        ActiveWeapon.Instance.ToggleIsAttacking(false);
+    }
+
+    public WeaponInfo GetWeaponInfo()
+    {
+        return weaponInfo;
     }
 }
