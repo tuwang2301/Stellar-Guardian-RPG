@@ -1685,6 +1685,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 958370618}
+  - component: {fileID: 958370619}
   m_Layer: 0
   m_Name: Environment
   m_TagString: Untagged
@@ -1711,6 +1712,18 @@ Transform:
   - {fileID: 1993703391}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &958370619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958370617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5d8e4519be703e4da6fe1bb42065cc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &990413577
 GameObject:
   m_ObjectHideFlags: 0
@@ -4433,6 +4446,7 @@ GameObject:
   - component: {fileID: 1640052921}
   - component: {fileID: 1640052920}
   - component: {fileID: 1640052919}
+  - component: {fileID: 1640052922}
   m_Layer: 0
   m_Name: Foreground
   m_TagString: Untagged
@@ -6952,6 +6966,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1640052922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640052915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5d8e4519be703e4da6fe1bb42065cc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1663737943
 GameObject:
   m_ObjectHideFlags: 0
@@ -7649,11 +7675,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.72123927, y: 1.5422112}
-      - {x: -1.5523789, y: 1.4663898}
-      - {x: -2.228865, y: 0.5726916}
-      - {x: -2.4178636, y: -0.50477695}
-      - {x: -1.9333007, y: -1.0495038}
+    - - {x: -0.26034743, y: 0.73609114}
+      - {x: -0.73427975, y: 0.6941015}
+      - {x: -1.0217582, y: 0.53681403}
+      - {x: -1.1061903, y: 0.2700476}
+      - {x: -1.1723396, y: -0.02827067}
+      - {x: -0.88483214, y: -0.71955633}
       - {x: 0.07890147, y: -0.3603111}
   m_UseDelaunayMesh: 0
 --- !u!114 &2002442047
