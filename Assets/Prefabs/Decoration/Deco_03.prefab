@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6596645652454692864}
   - component: {fileID: 7601405758565528}
   - component: {fileID: 3924259574077682780}
+  - component: {fileID: 1413368513587485916}
   m_Layer: 0
   m_Name: Deco_03
   m_TagString: Untagged
@@ -163,3 +164,18 @@ PolygonCollider2D:
       - {x: 0.14999999, y: -0.32999998}
       - {x: 0.14, y: -0.48999998}
   m_UseDelaunayMesh: 0
+--- !u!114 &1413368513587485916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3046708441589673297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ed013914a04d1a489636fbe1537ce4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldCoin: {fileID: 6208867071818802882, guid: 36ceb08695744684e8a2f1997e9db4e5, type: 3}
+  healthGlobe: {fileID: 6208867071818802882, guid: a35ee294bee767940a2407438bafdb54, type: 3}
+  staminaGlobe: {fileID: 6208867071818802882, guid: 066a073355bb4ae4c88932614ded7bc6, type: 3}
