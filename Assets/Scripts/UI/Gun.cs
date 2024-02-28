@@ -20,8 +20,17 @@ public class Gun : MonoBehaviour, IWeapon
     public void Attack()
     {
         myAnimator.SetTrigger(FIRE_HASH);
-        GameObject newArrow = Instantiate(bulletPrefab, bulletSpawnPoint.position, this.transform.rotation);
-        newArrow.GetComponent<Projectile>().UpdateWeaponInfo(weaponInfo);
+        StartCoroutine(ShootArrows());
+    }
+
+    IEnumerator ShootArrows()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject newArrow = Instantiate(bulletPrefab, bulletSpawnPoint.position, transform.rotation);
+            newArrow.GetComponent<Projectile>().UpdateProjectileRange(weaponInfo.weaponRange);
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 
     public WeaponInfo GetWeaponInfo()
