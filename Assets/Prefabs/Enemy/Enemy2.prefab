@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 1407007946748508414}
   - component: {fileID: 728482441555103698}
   - component: {fileID: 6070322028188275593}
+  - component: {fileID: 8237494523852865387}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Untagged
@@ -249,6 +250,21 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortAtRoot: 0
+--- !u!114 &8237494523852865387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500448478655897634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ed013914a04d1a489636fbe1537ce4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldCoin: {fileID: 6208867071818802882, guid: 36ceb08695744684e8a2f1997e9db4e5, type: 3}
+  healthGlobe: {fileID: 6208867071818802882, guid: a35ee294bee767940a2407438bafdb54, type: 3}
+  staminaGlobe: {fileID: 6208867071818802882, guid: 066a073355bb4ae4c88932614ded7bc6, type: 3}
 --- !u!1 &4140714393208382467
 GameObject:
   m_ObjectHideFlags: 0
