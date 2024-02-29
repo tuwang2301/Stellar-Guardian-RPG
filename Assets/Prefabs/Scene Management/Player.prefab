@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 928321032876590030}
   - component: {fileID: 1516761976968965187}
   - component: {fileID: 4794938300483587350}
+  - component: {fileID: 1598761988305409071}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -416,7 +417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ad61c46a325134090eb6d1e93d651a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 10
   knockBackThrustAmount: 10
   damageRecoveryTime: 1
 --- !u!114 &1516761976968965187
@@ -446,6 +447,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   knockBackTime: 0.2
+--- !u!114 &1598761988305409071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6216799632005534374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acdccd87f2a12944c961995be1b9ee6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fullStaminaImage: {fileID: 21300000, guid: abef810d853c5944c9baae54e9574f84, type: 3}
+  emptyStaminaImage: {fileID: 21300000, guid: 839b5cf7a3ddfee45ae6bf32e72c9059, type: 3}
+  timeBetweenStaminaRefresh: 3
 --- !u!1 &9062926095495181006
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,13 +539,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.26034743, y: 0.73609114}
-      - {x: -0.73427975, y: 0.6941015}
-      - {x: -1.0217582, y: 0.53681403}
-      - {x: -1.1061903, y: 0.2700476}
-      - {x: -1.1723396, y: -0.02827067}
-      - {x: -0.88483214, y: -0.71955633}
-      - {x: 0.07890147, y: -0.3603111}
+    - - {x: -1.0543277, y: 0.4537871}
+      - {x: -1.5459038, y: 1.1881335}
+      - {x: -1.6569427, y: 1.1543542}
+      - {x: -1.8295947, y: 1.0287398}
+      - {x: -2.372132, y: 0.18345743}
+      - {x: -2.3406975, y: -0.51468825}
+      - {x: -1.9964044, y: -0.9489285}
+      - {x: -0.43277484, y: -0.66025907}
   m_UseDelaunayMesh: 0
 --- !u!114 &3812906681435507241
 MonoBehaviour:
