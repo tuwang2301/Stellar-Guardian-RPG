@@ -20,6 +20,7 @@ public class Pistol : MonoBehaviour, IWeapon
     public void Attack()
     {
         myAnimator.SetTrigger(FIRE_HASH);
+        AudioManager.Instance.PLaySFX("shoot");
         GameObject newArrow = Instantiate(bulletPrefab, bulletSpawnPoint.position, transform.rotation);
         newArrow.GetComponent<Projectile>().UpdateProjectileRange(weaponInfo.weaponRange);
     }

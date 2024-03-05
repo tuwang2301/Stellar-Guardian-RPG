@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class DamageSource : MonoBehaviour
 {
-    [SerializeField] private int damageAmount = 1;
+    [SerializeField] private WeaponInfo weaponInfo;
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         EnemyHealth enemyHealth = collision.gameObject.GetComponent<EnemyHealth>();
-        enemyHealth?.TakeDamage(damageAmount);
+        enemyHealth?.TakeDamage(weaponInfo.weaponDamage);
     }
 }

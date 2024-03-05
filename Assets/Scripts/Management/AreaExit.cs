@@ -9,22 +9,41 @@ public class AreaExit : MonoBehaviour
     [SerializeField] private string sceneTransitionName;
     [SerializeField] GameObject enemies;
 
-    private float waitToLoadTime = 1f;
+    private float waitToLoadTime = 6f;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void Update()
     {
         if (enemies.transform.childCount == 0)
         {
-            if (other.gameObject.GetComponent<PlayerController>())
+            MessageController.Instance.ShowMessage("ENEMY CLEAR",100f);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (Input.GetKey(KeyCode.F))
+        {
+            if (enemies.transform.childCount == 0)
             {
-                SceneManagement.Instance.SetTransitionName(sceneTransitionName);
-                UIFade.Instance.FadeToBlack();
-                StartCoroutine(LoadSceneRoutine());
+                if (collision.gameObject.GetComponent<PlayerController>())
+                {
+                    SceneManagement.Instance.SetTransitionName(sceneTransitionName);
+                    UIFade.Instance.FadeToBlack();
+                    StartCoroutine(LoadSceneRoutine());
+                }
+            }
+            else
+            {
+                MessageController.Instance.ShowMessage("You have to kill all the enemies to unlock this door",2f);
             }
         }
-        else
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<PlayerController>())
         {
-            Debug.Log("You have to kill all the enemies to unlock this door");
+            MessageController.Instance.ShowMessage("Try Press F",1f);
         }
     }
 

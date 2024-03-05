@@ -86,6 +86,7 @@ public class Pickup : MonoBehaviour
 
     private void DetectPickupType()
     {
+        AudioManager.Instance.PLaySFX("collect");
         switch (pickUpType)
         {
             case PickUpType.GoldCoin:
