@@ -560,4 +560,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7966e1e6162f34eb52e8ed96f95249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 1
+  weaponInfo: {fileID: 11400000, guid: 158191e289e75694286e757a445d43c9, type: 2}

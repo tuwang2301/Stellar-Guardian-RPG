@@ -4,31 +4,43 @@ using UnityEngine;
 
 public class EnemyPathFinding : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 2f;
+	[SerializeField] private float moveSpeed = 2f;
 
-    private Rigidbody2D rb;
-    private Vector2 moveDir;
-    private KnockBack knockBack;
+	private Rigidbody2D rb;
+	private Vector2 moveDir;
+	private KnockBack knockback;
+	private SpriteRenderer spriteRenderer;
 
-    private void Awake()
-    {
-        knockBack = GetComponent<KnockBack>();
-        rb = GetComponent<Rigidbody2D>();   
-    }
+	private void Awake()
+	{
+		spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+		knockback = GetComponent<KnockBack>();
+		rb = GetComponent<Rigidbody2D>();
+	}
 
-    private void FixedUpdate()
-    {
-        if(knockBack.gettingKnockedBack) { return; }
-        rb.MovePosition(rb.position + moveDir * (moveSpeed * Time.deltaTime));
-    }
+	private void FixedUpdate()
+	{
+		if (knockback.gettingKnockedBack) { return; }
 
-    public void MoveTo(Vector2 pos)
-    {
-        moveDir = pos;
-    }
+		rb.MovePosition(rb.position + moveDir * (moveSpeed * Time.fixedDeltaTime));
 
-    public void StopMoving()
-    {
-        moveDir = Vector3.zero;
-    }
+		if (moveDir.x < 0)
+		{
+			spriteRenderer.flipX = true;
+		}
+		else if (moveDir.x > 0)
+		{
+			spriteRenderer.flipX = false;
+		}
+	}
+
+	public void MoveTo(Vector2 targetPosition)
+	{
+		moveDir = targetPosition;
+	}
+
+	public void StopMoving()
+	{
+		moveDir = Vector3.zero;
+	}
 }
