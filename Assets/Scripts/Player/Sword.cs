@@ -33,6 +33,12 @@ public class Sword : MonoBehaviour, IWeapon
     public void Attack()
     {
         animator.SetTrigger("Attack");
+        StartCoroutine(ActivateColliderAfterDelay(1));
+    }
+
+    IEnumerator ActivateColliderAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
         weaponCollider.gameObject.SetActive(true);
         StartCoroutine(AttackCDRoutine());
     }

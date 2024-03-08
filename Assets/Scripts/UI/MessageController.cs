@@ -5,15 +5,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MessageController : MonoBehaviour
+public class MessageController : Singleton<MessageController>
 {
     [SerializeField] TextMeshProUGUI messageText;
 
-    public static MessageController Instance { get; private set; }
-
-    private void Awake()
+    protected override void Awake()
     {
-        Instance = this;
+        base.Awake();
         this.gameObject.SetActive(false);
     }
 
