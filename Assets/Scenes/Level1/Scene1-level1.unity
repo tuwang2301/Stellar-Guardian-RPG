@@ -6873,7 +6873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80063cbbaf581104e9bcf4a3f98f55f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Scene2
+  sceneToLoad: Scene2-level1
   sceneTransitionName: WEntry
   enemies: {fileID: 1016816335}
 --- !u!1001 &4299603623641059976
