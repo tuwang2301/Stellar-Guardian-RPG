@@ -30,18 +30,13 @@ public class Sword : MonoBehaviour, IWeapon
         return weaponInfo;
     }
 
-    public void Attack()
-    {
-        animator.SetTrigger("Attack");
-        StartCoroutine(ActivateColliderAfterDelay(1));
-    }
-
-    IEnumerator ActivateColliderAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        weaponCollider.gameObject.SetActive(true);
-        StartCoroutine(AttackCDRoutine());
-    }
+	public void Attack()
+	{
+		animator.SetTrigger("Attack");
+		AudioManager.Instance.PLaySFX("sword");
+		weaponCollider.gameObject.SetActive(true);
+		StartCoroutine(AttackCDRoutine());
+	}
 
     private IEnumerator AttackCDRoutine()
     {

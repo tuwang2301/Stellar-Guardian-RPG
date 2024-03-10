@@ -27,7 +27,8 @@ public class Gun : MonoBehaviour, IWeapon
     {
         for (int i = 0; i < 3; i++)
         {
-            GameObject newArrow = Instantiate(bulletPrefab, bulletSpawnPoint.position, transform.rotation);
+			AudioManager.Instance.PLaySFX("shoot");
+			GameObject newArrow = Instantiate(bulletPrefab, bulletSpawnPoint.position, transform.rotation);
             newArrow.GetComponent<Projectile>().UpdateProjectileRange(weaponInfo.weaponRange);
             yield return new WaitForSeconds(0.1f);
         }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,11 +12,23 @@ public class AreaExit : MonoBehaviour
 
     private float waitToLoadTime = 6f;
 
-    private void Update()
+    private PortalController portal;
+
+	private void Awake()
+	{
+		portal = GetComponent<PortalController>();
+
+	}
+	private void Update()
     {
         if (enemies.transform.childCount == 0)
         {
-            MessageController.Instance.ShowMessage("ENEMY CLEAR",100f);
+            Debug.Log("a");
+            MessageController.Instance.ShowMessage("ENEMY CLEAR",100f);      
+            if(portal != null)
+            {
+                portal.ShowPortal();
+            }
         }
     }
 

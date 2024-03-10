@@ -29,7 +29,8 @@ public class Hammer : MonoBehaviour, IWeapon
     public void Attack()
     {
         animator.SetTrigger("Attack");
-        weaponCollider.gameObject.SetActive(true);
+		AudioManager.Instance.PLaySFX("hammer");
+		weaponCollider.gameObject.SetActive(true);
         StartCoroutine(AttackCDRoutine());
     }
 
