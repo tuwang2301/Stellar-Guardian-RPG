@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5677686452701771973}
   - component: {fileID: 5609368620054059973}
   - component: {fileID: 7528690277147664162}
+  - component: {fileID: 1168041998760431720}
   m_Layer: 0
   m_Name: convert_1
   m_TagString: Untagged
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 7203a815290e05745b2b59494091a019, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -158,4 +159,15 @@ MonoBehaviour:
   sceneToLoad: Scene1-level2
   sceneTransitionName: BBEntry
   enemies: {fileID: 0}
-  isFinalScene: 1
+--- !u!114 &1168041998760431720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5303840804183391931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 420101098bcaa87498a692f29ba37356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

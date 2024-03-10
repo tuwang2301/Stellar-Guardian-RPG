@@ -12,23 +12,12 @@ public class AreaExit : MonoBehaviour
 
     private float waitToLoadTime = 6f;
 
-    private PortalController portal;
-
-	private void Awake()
-	{
-		portal = GetComponent<PortalController>();
-
-	}
 	private void Update()
     {
         if (enemies.transform.childCount == 0)
         {
-            Debug.Log("a");
+            AudioManager.Instance.PLaySFX("clear");
             MessageController.Instance.ShowMessage("ENEMY CLEAR",100f);      
-            if(portal != null)
-            {
-                portal.ShowPortal();
-            }
         }
     }
 
@@ -40,6 +29,7 @@ public class AreaExit : MonoBehaviour
             {
                 if (collision.gameObject.GetComponent<PlayerController>())
                 {
+                    AudioManager.Instance.PLaySFX("scene");
                     SceneManagement.Instance.SetTransitionName(sceneTransitionName);
                     UIFade.Instance.FadeToBlack();
                     StartCoroutine(LoadSceneRoutine());
@@ -47,6 +37,7 @@ public class AreaExit : MonoBehaviour
             }
             else
             {
+                AudioManager.Instance.PLaySFX("notClear");
                 MessageController.Instance.ShowMessage("You have to kill all the enemies to unlock this door",2f);
             }
         }
@@ -66,6 +57,11 @@ public class AreaExit : MonoBehaviour
         {
             waitToLoadTime -= Time.deltaTime;
             yield return null;
+        }
+
+        if (sceneToLoad.Equals("Scene1-level2") || sceneToLoad.Equals("Scene1-level3"))
+        {
+            PlayerHealth.Instance.RESPAWN_SCENE = sceneToLoad;
         }
 
         SceneManager.LoadScene(sceneToLoad);

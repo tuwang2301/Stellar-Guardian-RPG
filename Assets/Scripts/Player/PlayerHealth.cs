@@ -19,7 +19,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     private Flash flash;
 
     const string HEALTH_SLIDER_TEXT = "Health Slider";
-    const string TOWN_TEXT = "Scene1";
+    public string RESPAWN_SCENE = "Scene1-level1";
     readonly int DEATH_HASH = Animator.StringToHash("Death");
 
 
@@ -79,6 +79,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
         if (currentHealth <= 0 && !isDead)
         {
             isDead = true;
+            AudioManager.Instance.PLaySFX("die");
             Destroy(ActiveWeapon.Instance.gameObject);
             currentHealth = 0;
             GetComponent<Animator>().SetTrigger(DEATH_HASH);
@@ -90,7 +91,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     {
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
-        SceneManager.LoadScene(TOWN_TEXT);
+        SceneManager.LoadScene(RESPAWN_SCENE);
     }
 
     private IEnumerator DamageRecoveryRoutine()
