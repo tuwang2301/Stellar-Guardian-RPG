@@ -14,4 +14,9 @@ public class PortalController : Singleton<PortalController>
 	{
 		this.gameObject.SetActive(true);
 	}
+
+    public void HidePortal()
+    {
+        this.gameObject.SetActive(false);
+    }
 }

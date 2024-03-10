@@ -112,6 +112,7 @@ public class PlayerController : Singleton<PlayerController>
         {
             Stamina.Instance.UseStamina();
             isDashing = true;
+            AudioManager.Instance.PLaySFX("dash");
             moveSpeed *= dashSpeed;
             myTrailRenderer.emitting = true;
             StartCoroutine(EndDashRoutine());
