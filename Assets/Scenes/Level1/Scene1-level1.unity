@@ -8937,11 +8937,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2224836897570285687, guid: f27f8e116b3e6544a8ab2c72f99fb52c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.07694073
+      value: 0.08644893
       objectReference: {fileID: 0}
     - target: {fileID: 2224836897570285687, guid: f27f8e116b3e6544a8ab2c72f99fb52c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 26.479158
+      value: 26.47918
       objectReference: {fileID: 0}
     - target: {fileID: 4500584856478041325, guid: f27f8e116b3e6544a8ab2c72f99fb52c, type: 3}
       propertyPath: m_ChildCameras.Array.size

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
@@ -16,6 +17,9 @@ public class Menu : MonoBehaviour
     }
     private void PlayGame()
     {
-
+        if (PlayerPrefs.HasKey("sceneToLoad"))
+            SceneManager.LoadScene(PlayerPrefs.GetString("sceneToLoad"));
+        else
+            SceneManager.LoadScene(PlayerPrefs.GetString("Scene1-level1"));
     }
 }
