@@ -2047,6 +2047,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2188232124172648847, guid: f27f8e116b3e6544a8ab2c72f99fb52c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.6046033
+      objectReference: {fileID: 0}
+    - target: {fileID: 2188232124172648847, guid: f27f8e116b3e6544a8ab2c72f99fb52c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.03157573
+      objectReference: {fileID: 0}
+    - target: {fileID: 2224836897570285687, guid: f27f8e116b3e6544a8ab2c72f99fb52c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2224836897570285687, guid: f27f8e116b3e6544a8ab2c72f99fb52c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4500584856478041325, guid: f27f8e116b3e6544a8ab2c72f99fb52c, type: 3}
       propertyPath: m_Follow
       value: 
@@ -7152,6 +7168,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1168041998760431720, guid: e70cb1470fa581b45a1f00222283bfa9, type: 3}
+      propertyPath: sceneToLoad
+      value: Scene1-level2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1168041998760431720, guid: e70cb1470fa581b45a1f00222283bfa9, type: 3}
+      propertyPath: sceneTransitionName
+      value: BBEntry
+      objectReference: {fileID: 0}
     - target: {fileID: 5303840804183391931, guid: e70cb1470fa581b45a1f00222283bfa9, type: 3}
       propertyPath: m_Name
       value: Portal
@@ -7200,7 +7224,8 @@ PrefabInstance:
       propertyPath: enemies
       value: 
       objectReference: {fileID: 1016816335}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7528690277147664162, guid: e70cb1470fa581b45a1f00222283bfa9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
