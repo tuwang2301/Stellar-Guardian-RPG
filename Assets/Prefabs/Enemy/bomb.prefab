@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 2324286605961551902}
   - component: {fileID: 1461662842888248583}
   - component: {fileID: 3450575885481075726}
+  - component: {fileID: 7032333225952938898}
   m_Layer: 0
   m_Name: bomb
   m_TagString: Untagged
@@ -202,3 +203,41 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &7032333225952938898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6924027666785811142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18c30f6f7fd7e8b4491737aab950dcc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 2
+  animCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -0.30307007
+      value: -0.0026245117
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1.056468
+      value: 0.0058248444
+      inSlope: -0.0014315008
+      outSlope: -0.0014315008
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.22600287
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  heightY: 5.5
