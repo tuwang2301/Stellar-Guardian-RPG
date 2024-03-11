@@ -7,13 +7,17 @@ public class BombProjectile : MonoBehaviour
 	[SerializeField] private float duration = 1f;
 	[SerializeField] private AnimationCurve animCurve;
 	[SerializeField] private float heightY = 3f;
+	[SerializeField] private GameObject bombProjectileShadow;
+	[SerializeField] private GameObject splatterPrefab;
 
 	private void Start()
 	{
-
+		GameObject bombShadow =
+		Instantiate(bombProjectileShadow, transform.position + new Vector3(0, -0.3f, 0), Quaternion.identity);
 		Vector3 playerPos = PlayerController.Instance.transform.position;
-
+		Vector3 bombShadowStartPosition = bombShadow.transform.position;
 		StartCoroutine(ProjectileCurveRoutine(transform.position, playerPos));
+		StartCoroutine(MoveBombShadowRoutine(bombShadow, bombShadowStartPosition, playerPos));
 	}
 
 	private IEnumerator ProjectileCurveRoutine(Vector3 startPosition, Vector3 endPosition)
@@ -31,13 +35,22 @@ public class BombProjectile : MonoBehaviour
 
 			yield return null;
 		}
-
+		Instantiate(splatterPrefab, transform.position, Quaternion.identity);
 		Destroy(gameObject);
 	}
 
-	private void OnTriggerEnter2D(Collider2D other)
+	private IEnumerator MoveBombShadowRoutine(GameObject bombShadow, Vector3 startPosition, Vector3 endPosition)
 	{
-		PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
-		playerHealth?.TakeDamage(1, transform);
+		float timePassed = 0f;
+
+		while (timePassed < duration)
+		{
+			timePassed += Time.deltaTime;
+			float linearT = timePassed / duration;
+			bombShadow.transform.position = Vector2.Lerp(startPosition, endPosition, linearT);
+			yield return null;
+		}
+
+		Destroy(bombShadow);
 	}
 }

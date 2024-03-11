@@ -42,7 +42,11 @@ public class Projectile : MonoBehaviour
                 }
                 else if (!isEnemyProjectile)
                 {
-                    enemyHealth?.TakeDamage(1);
+                    if (!enemyHealth.isBulletProof)
+                    {
+						enemyHealth?.TakeDamage(1);
+					}
+                    
                 }
 
                 Instantiate(particleOnHitPrefabVFX, transform.position, transform.rotation);

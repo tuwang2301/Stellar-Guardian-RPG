@@ -114,7 +114,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.8418293, y: -2.082411, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7201112906309330670}
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18c30f6f7fd7e8b4491737aab950dcc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 2
+  duration: 0.5
   animCurve:
     serializedVersion: 2
     m_Curve:
@@ -241,3 +241,5 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   heightY: 5.5
+  bombProjectileShadow: {fileID: 2891363851793838637, guid: 9d9aa4baf342f6e428b67ea094872440, type: 3}
+  splatterPrefab: {fileID: 5032559757812802850, guid: 2b59b321eb713284a901115fcb56b393, type: 3}
