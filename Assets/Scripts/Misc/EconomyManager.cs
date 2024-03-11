@@ -6,7 +6,7 @@ using TMPro;
 public class EconomyManager : Singleton<EconomyManager>
 {
     private TMP_Text goldText;
-    private int currentGold = 0;
+    public int currentGold = 0;
 
     const string COIN_AMOUNT_TEXT = "Gold Amount Text";
 
