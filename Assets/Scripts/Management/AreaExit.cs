@@ -12,12 +12,12 @@ public class AreaExit : MonoBehaviour
 
     private float waitToLoadTime = 6f;
 
-	private void Update()
+    private void Update()
     {
         if (enemies.transform.childCount == 0)
         {
             AudioManager.Instance.PLaySFX("clear");
-            MessageController.Instance.ShowMessage("ENEMY CLEAR",100f);      
+            MessageController.Instance.ShowMessage("ENEMY CLEAR", 100f);
         }
     }
 
@@ -38,7 +38,7 @@ public class AreaExit : MonoBehaviour
             else
             {
                 AudioManager.Instance.PLaySFX("notClear");
-                MessageController.Instance.ShowMessage("You have to kill all the enemies to unlock this door",2f);
+                MessageController.Instance.ShowMessage("You have to kill all the enemies to unlock this door", 2f);
             }
         }
     }
@@ -47,7 +47,7 @@ public class AreaExit : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerController>())
         {
-            MessageController.Instance.ShowMessage("Try Press F",1f);
+            MessageController.Instance.ShowMessage("Try Press F", 1f);
         }
     }
 
@@ -63,7 +63,7 @@ public class AreaExit : MonoBehaviour
         {
             PlayerHealth.Instance.RESPAWN_SCENE = sceneToLoad;
         }
-
+        PlayerPrefs.SetString("sceneToLoad", sceneToLoad);
         SceneManager.LoadScene(sceneToLoad);
     }
 }
