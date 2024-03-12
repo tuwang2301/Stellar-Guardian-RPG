@@ -136,7 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8146854582033083091, guid: d9db019e89bad9a43a3fc5475e9cf669, type: 3}
   bulletMoveSpeed: 8
-  burstCount: 20
+  burstCount: 100000
   projectilesPerBurst: 10
   angleSpread: 359
   startingDistance: 0.1
