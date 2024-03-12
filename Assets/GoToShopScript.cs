@@ -7,10 +7,10 @@ public class GoToShopScript : MonoBehaviour
 {
     [SerializeField] private string sceneToLoad;
     [SerializeField] private string sceneTransitionName;
+    [SerializeField] private GameObject obj;
     private float waitToLoadTime = 2f;
 
     
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("aaaa");
@@ -28,23 +28,9 @@ public class GoToShopScript : MonoBehaviour
 
             if (collision.gameObject.GetComponent<PlayerController>())
             {
-                SceneManagement.Instance.SetTransitionName(sceneTransitionName);
-                UIFade.Instance.FadeToBlack();
-                StartCoroutine(LoadSceneRoutine());
+                obj.SetActive(true);
             }
         }
-    }
-
-
-    private IEnumerator LoadSceneRoutine()
-    {
-        while (waitToLoadTime >= 0)
-        {
-            waitToLoadTime -= Time.deltaTime;
-            yield return null;
-        }
-
-        SceneManager.LoadScene(sceneToLoad);
     }
 
 

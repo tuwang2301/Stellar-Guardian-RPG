@@ -11,14 +11,35 @@ public class ShopController : MonoBehaviour
 
     private GameObject selectedPlanet;
 
+    [SerializeField] private Text coinText;
+    [SerializeField] private Text currentHealthText;
+    [SerializeField] private Text staminaTimeText;
+
+    [SerializeField] private Button button;
+    [SerializeField] private GameObject Shop;
+
     [SerializeField]
     private Text value;
 
-    private int coins;
 
     private void Start()
     {
+
+        if (button != null)
+        {
+            button.onClick.AddListener(LeaveShop);
+        }
         SelectPlanet(planets[0]);
+    }
+
+    void Update()
+    {
+        int coins = EconomyManager.Instance.currentGold != null ? EconomyManager.Instance.currentGold : 0;
+        int currentHealth = PlayerHealth.Instance.currentHealth != null ? PlayerHealth.Instance.currentHealth : 10;
+        int staminaTime = Stamina.Instance.timeBetweenStaminaRefresh != null ? Stamina.Instance.timeBetweenStaminaRefresh : 3;
+        coinText.text = coins.ToString();
+        currentHealthText.text = (currentHealth * 10).ToString() + "%";
+        staminaTimeText.text = staminaTime.ToString() + ".0s";
     }
 
     public void OnClick(int index)
@@ -29,6 +50,7 @@ public class ShopController : MonoBehaviour
     public void Buy()
     {
         int coins = EconomyManager.Instance.currentGold;
+        Debug.Log("aaaaa: " + coins);
         int index = GetIndex(selectedPlanet);
         int balance = coins - int.Parse(value.text);
 
@@ -37,9 +59,30 @@ public class ShopController : MonoBehaviour
         {
             // withdraw the game object value from total coins and update text value
             EconomyManager.Instance.currentGold = balance;
+            if (index == 2)
+            {
+                PlayerHealth.Instance.currentHealth += 5;
+                if (PlayerHealth.Instance.currentHealth > 10)
+                {
+                    PlayerHealth.Instance.currentHealth = 10;
+                }
+            }
 
-            PlayerPrefs.SetInt("selected", index);
-            PlayerPrefs.SetInt("status " + index, 1);
+            if (index == 3)
+            {
+                PlayerHealth.Instance.currentHealth = 10;
+            }
+
+            if (index == 4)
+            {
+                Stamina.Instance.timeBetweenStaminaRefresh -= 2;
+            }
+
+            if (index != 2 && index != 3)
+            {
+                selectedPlanet.SetActive(false);
+            }
+
         }
 
     }
@@ -89,5 +132,10 @@ public class ShopController : MonoBehaviour
         }
 
         return index;
+    }
+
+    public void LeaveShop()
+    {
+        Shop.SetActive(false);
     }
 }

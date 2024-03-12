@@ -13,7 +13,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
     public bool isDead { get; private set; }
 
     private Slider healthSlider;
-    private int currentHealth;
+    public int currentHealth;
     private bool canTakeDamage = true;
     private KnockBack knockback;
     private Flash flash;
