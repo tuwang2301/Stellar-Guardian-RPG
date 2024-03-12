@@ -7,19 +7,17 @@ using UnityEngine.UI;
 public class Menu : MonoBehaviour
 {
     [SerializeField] private Button btPlay;
-    [SerializeField] private Button btQuit;
+    [SerializeField] private Button btnInstruction;
+    [SerializeField] private GameObject Instruction;
     void Start()
     {
         if (btPlay != null)
             btPlay.onClick.AddListener(PlayGame);
-        if (btQuit != null)
-            btQuit.onClick.AddListener(() => { Application.Quit(); });
+        if (btnInstruction != null)
+            btnInstruction.onClick.AddListener(() => { Instruction.SetActive(true); });
     }
     private void PlayGame()
     {
-        if (PlayerPrefs.HasKey("sceneToLoad"))
-            SceneManager.LoadScene(PlayerPrefs.GetString("sceneToLoad"));
-        else
-            SceneManager.LoadScene(PlayerPrefs.GetString("Scene1-level1"));
+        SceneManager.LoadScene("Scene1-level1");
     }
 }
