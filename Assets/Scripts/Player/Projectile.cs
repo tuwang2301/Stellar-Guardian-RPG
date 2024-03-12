@@ -44,7 +44,7 @@ public class Projectile : MonoBehaviour
                 {
                     if (!enemyHealth.isBulletProof)
                     {
-						enemyHealth?.TakeDamage(1);
+						enemyHealth?.TakeDamage(2);
 					}
                     
                 }

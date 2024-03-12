@@ -46,7 +46,7 @@ public class PortalController : Singleton<PortalController>
             yield return null;
         }
 
-        if (sceneToLoad.Equals("Scene1-level2") || sceneToLoad.Equals("Scene1-level3"))
+        if (sceneToLoad.Equals("Scene1-level2") || sceneToLoad.Equals("Scene1-lv3"))
         {
             PlayerHealth.Instance.RESPAWN_SCENE = sceneToLoad;
         }

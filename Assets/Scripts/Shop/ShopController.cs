@@ -78,6 +78,17 @@ public class ShopController : MonoBehaviour
                 Stamina.Instance.timeBetweenStaminaRefresh -= 2;
             }
 
+            if (index == 1)
+            {
+                ActiveInventory.Instance.transform.GetChild(2).gameObject.SetActive(true);
+            }
+
+            if (index == 0)
+            {
+                ActiveInventory.Instance.transform.GetChild(3).gameObject.SetActive(true);
+
+            }
+
             if (index != 2 && index != 3)
             {
                 selectedPlanet.SetActive(false);
