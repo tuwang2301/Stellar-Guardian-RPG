@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActiveInventory : Singleton<ActiveInventory> 
+public class ActiveInventory : Singleton<ActiveInventory>
 {
     private int activeSlotIndexNum = -1;
 
@@ -17,7 +17,19 @@ public class ActiveInventory : Singleton<ActiveInventory>
 
     private void Start()
     {
-        playerControls.Inventory.Keyboard.performed += ctx => ToggleActiveSlot((int)ctx.ReadValue<float>());
+        int index = 0; // Assuming you want to initialize index to some value
+
+        playerControls.Inventory.Keyboard.performed += ctx =>
+        {
+            if (this.transform.GetChild((int)ctx.ReadValue<float>() - 1).gameObject.activeSelf == true)
+            {
+                ToggleActiveSlot((int)ctx.ReadValue<float>());
+            }
+            else
+            {
+                Debug.Log("No Weapon");
+            }
+        };
     }
 
     private void OnEnable()
@@ -37,18 +49,19 @@ public class ActiveInventory : Singleton<ActiveInventory>
 
     private void ToggleActiveHighlight(int indexNum)
     {
-        if(indexNum != activeSlotIndexNum ) {
-
-        activeSlotIndexNum = indexNum;
-
-        foreach (Transform inventorySlot in this.transform)
+        if (indexNum != activeSlotIndexNum)
         {
-            inventorySlot.GetChild(0).gameObject.SetActive(false);
-        }
 
-        this.transform.GetChild(indexNum).GetChild(0).gameObject.SetActive(true);
+            activeSlotIndexNum = indexNum;
 
-        ChangeActiveWeapon();
+            foreach (Transform inventorySlot in this.transform)
+            {
+                inventorySlot.GetChild(0).gameObject.SetActive(false);
+            }
+
+            this.transform.GetChild(indexNum).GetChild(0).gameObject.SetActive(true);
+
+            ChangeActiveWeapon();
         }
     }
 
@@ -73,7 +86,7 @@ public class ActiveInventory : Singleton<ActiveInventory>
 
         GameObject newWeapon = Instantiate(weaponToSpawn, ActiveWeapon.Instance.transform);
 
-       // ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, 0);
+        // ActiveWeapon.Instance.transform.rotation = Quaternion.Euler(0, 0, 0);
         //newWeapon.transform.parent = ActiveWeapon.Instance.transform;
 
         ActiveWeapon.Instance.NewWeapon(newWeapon.GetComponent<MonoBehaviour>());
