@@ -13289,6 +13289,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e70cb1470fa581b45a1f00222283bfa9, type: 3}
+--- !u!1 &1333249928 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5303840804183391931, guid: e70cb1470fa581b45a1f00222283bfa9, type: 3}
+  m_PrefabInstance: {fileID: 1333249927}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1633941076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16138,6 +16143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies: {fileID: 1016816335}
+  portalController: {fileID: 1333249928}
 --- !u!4 &2085309824
 Transform:
   m_ObjectHideFlags: 0

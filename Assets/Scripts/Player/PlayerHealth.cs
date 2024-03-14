@@ -40,6 +40,11 @@ public class PlayerHealth : Singleton<PlayerHealth>
         UpdateHealthSlider();
     }
 
+    private void Update()
+    {
+        UpdateHealthSlider();
+    }
+
     private void OnCollisionStay2D(Collision2D other)
     {
         EnemyAI enemy = other.gameObject.GetComponent<EnemyAI>();
