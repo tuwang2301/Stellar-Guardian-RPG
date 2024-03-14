@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PortalController : Singleton<PortalController>
+public class PortalController : MonoBehaviour
 {
 
     [SerializeField] private string sceneToLoad;
@@ -11,15 +11,9 @@ public class PortalController : Singleton<PortalController>
 
     private float waitToLoadTime = 6f;
 
-    protected override void Awake()
+    private void Awake()
     {
-        base.Awake();
         this.gameObject.SetActive(false);
-    }
-
-    public void ShowPortal()
-    {
-        this.gameObject.SetActive(true);
     }
 
     public void HidePortal()

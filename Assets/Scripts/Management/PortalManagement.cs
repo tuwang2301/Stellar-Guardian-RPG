@@ -7,12 +7,13 @@ public class PortalManagement : MonoBehaviour
 {
 
     [SerializeField] GameObject enemies;
+    [SerializeField] GameObject portalController;
 
     private void Update()
     {
         if (enemies.transform.childCount == 0)
         {
-            PortalController.Instance.ShowPortal();
+            portalController.SetActive(true);
         }
     }
 

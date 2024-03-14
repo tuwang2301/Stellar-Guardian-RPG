@@ -14,6 +14,11 @@ public class EconomyManager : Singleton<EconomyManager>
     {
         currentGold += 1;
 
+        
+    }
+
+    private void Update()
+    {
         if (goldText == null)
         {
             goldText = GameObject.Find(COIN_AMOUNT_TEXT).GetComponent<TMP_Text>();

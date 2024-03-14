@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private GameObject deathVFXPrefab;
     [SerializeField] private float knockBackThrust = 10f;
     [SerializeField] public bool isBulletProof = false;
+    [SerializeField] private Slider healthSlider;
+
 
     private int currentHealth;
     private KnockBack knockBack;
@@ -22,6 +25,7 @@ public class EnemyHealth : MonoBehaviour
     private void Start()
     {
         currentHealth = startingHealth;
+        UpdateHealthSlider();
     }
 
     public void TakeDamage(int damage)
@@ -31,6 +35,7 @@ public class EnemyHealth : MonoBehaviour
         knockBack.GetKnockedBack(PlayerController.Instance.transform, knockBackThrust);
         StartCoroutine(flash.FlashRoutine());
         StartCoroutine(CheckDetectDeathRoutine());
+        UpdateHealthSlider();
     }
 
     private IEnumerator CheckDetectDeathRoutine()
@@ -46,6 +51,15 @@ public class EnemyHealth : MonoBehaviour
             Instantiate(deathVFXPrefab, transform.position, Quaternion.identity);
             GetComponent<PickUpSpawner>().DropItems();
             Destroy(gameObject);
+        }
+    }
+
+    private void UpdateHealthSlider()
+    {
+        if (healthSlider != null)
+        {
+            healthSlider.maxValue = startingHealth;
+            healthSlider.value = currentHealth;
         }
     }
 }

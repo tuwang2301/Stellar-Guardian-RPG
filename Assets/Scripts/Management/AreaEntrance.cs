@@ -11,10 +11,6 @@ public class AreaEntrance : MonoBehaviour
         if (transitionName == SceneManagement.Instance.SceneTransitionName)
         {
             MessageController.Instance.HideMessage();
-            if(PortalController.Instance != null)
-            {
-            PortalController.Instance.HidePortal();
-            }
             PlayerController.Instance.transform.position = this.transform.position;
             CameraController.Instance.SetPlayerCameraFollow();
             UIFade.Instance.FadeToClear();

@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: DefaultCompany
   productName: Stellar Guardian RPG
-  defaultCursor: {fileID: 2800000, guid: 1d78ea13ed0615c4996735add71cbd43, type: 3}
+  defaultCursor: {fileID: 2800000, guid: b889ef0124f73fa4298de5e962dac98b, type: 3}
   cursorHotspot: {x: 128, y: 128}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
